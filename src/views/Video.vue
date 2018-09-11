@@ -1,7 +1,7 @@
 <template>
     <b-container>
         <b-row align-h = “between>
-            <b-col cols="4" v-for="video in video_list">
+            <b-col cols="4" v-for="video in video_list" :key="video.id">
                 <b-card
                         :img-src="video.small_img"
                         :id="video.id"
@@ -42,7 +42,6 @@
             getVideo(){
                 get_all_video({}).then((data)=>{
                     let all = data.data;
-                    console.log(all);
                     if(!all.code){
                         if(all.data){
                             all.data.forEach((i)=>{

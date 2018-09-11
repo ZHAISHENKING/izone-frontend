@@ -1,7 +1,7 @@
 <template>
     <b-container fluid class="p-4 bg-dark">
         <b-row>
-            <b-col v-for="i in imgList">
+            <b-col v-for="i in imgList" :key="i.id">
                 <b-img thumbnail fluid
                        :src="i.url"
                        alt="Thumbnail"

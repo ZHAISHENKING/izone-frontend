@@ -1,7 +1,7 @@
 <template>
   <b-container>
     <b-row align-h = “between>
-      <b-col cols="4" v-for="i in cateList">
+      <b-col cols="4" v-for="i in cateList" :key="i.id">
         <b-card :title="i.title"
                 img-src="https://picsum.photos/600/300/?image=25"
                 img-alt="Image"
@@ -21,8 +21,7 @@
 
 <script>
     import {
-        get_category,
-        get_img
+        get_category
     } from '../../requestUrl'
     export default {
         name: 'ImgCategory',
