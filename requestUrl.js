@@ -22,8 +22,6 @@ function baseRequest(method, path, params, data, type) {
     }
 }
 
-// export let baseURL = baseURL.baseURL;
-
 
 export let get_category = function get_category(params){
     return baseRequest("GET", '/category/all/', params, '');
