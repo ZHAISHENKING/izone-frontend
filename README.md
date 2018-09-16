@@ -19,5 +19,4 @@ yarn run build
 ```
 yarn run lint
 ```
-进gui项并安依
- uu
+进gui并安装依赖
