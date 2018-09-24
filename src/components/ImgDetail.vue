@@ -1,12 +1,11 @@
 <template>
-    <b-container fluid class="p-4 bg-dark">
+    <b-container fluid class="p-4 bg-dark img-detail">
         <b-row>
             <b-col v-for="i in imgList" :key="i.id">
                 <b-img thumbnail fluid
                        :src="i.url"
                        alt="Thumbnail"
-                       width="250"
-                       height="250"
+                       style="width:250px;height:250px;"
                        rounded
                        v-b-tooltip.hover :title="i.desc"
                 >

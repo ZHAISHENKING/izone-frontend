@@ -1,0 +1,21 @@
+/*覆盖全局css配置，将需要经常改动的样式提出来*/
+
+nav{
+    background:#9252b3;
+}
+footer{
+    background: #9252b3;
+    color: #fff;
+}
+.jumbotron{
+    background: rgba(0,0,0,0);
+}
+.card-img-top{
+    height:150px;
+}
+.category h4{
+    font-size:1em;
+}
+.img-detail{
+    background: rgba(0,0,0,0) !important;
+}

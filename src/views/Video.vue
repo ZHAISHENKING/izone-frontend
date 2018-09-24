@@ -8,7 +8,7 @@
                         img-alt="Image"
                         img-top
                         tag="article"
-                        style="max-width: 20rem;"
+                        style="max-width: 20rem;color:#9252b3"
                         class="mb-2"
                         @click="ImgShow(video.video_url)">
                     <p class="text-left">
@@ -47,10 +47,10 @@
                             all.data.forEach((i)=>{
                                 this.video_list.push({
                                     "id":i.id,
-                                    "desc":i.desc,
+                                    "desc":'【'+i.desc+"】",
                                     "time_long":i.time_long,
                                     "video_url":i.video_url,
-                                    "small_img":i.small_img
+                                    "small_img":i.small_img ? i.small_img:"https://picsum.photos/1024/480/?image=54"
                                 })
                             })
                         }

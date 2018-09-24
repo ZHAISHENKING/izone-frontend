@@ -1,5 +1,5 @@
 <template>
-  <b-container>
+  <b-container class="category">
     <b-row align-h = “between>
       <b-col cols="4" v-for="i in cateList" :key="i.id">
         <b-card :title="i.title"
@@ -59,3 +59,9 @@
         }
     }
 </script>
+
+<style>
+  .category{
+    margin-top:10px;
+  }
+</style>
