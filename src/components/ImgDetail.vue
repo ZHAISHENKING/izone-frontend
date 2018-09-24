@@ -1,22 +1,21 @@
 <template>
     <b-container fluid class="p-4 bg-dark img-detail">
-        <b-row>
-            <b-col v-for="i in imgList" :key="i.id">
-                <b-img thumbnail fluid
-                       :src="i.url"
-                       alt="Thumbnail"
-                       style="width:250px;height:250px;"
-                       rounded
-                       v-b-tooltip.hover :title="i.desc"
-                >
-                </b-img>
-            </b-col>
-        </b-row>
+        <!--<div class="images" v-viewer>-->
+            <!--<img v-for="i in imgList" :src="i.url" :key="i.id">-->
+        <!--</div>-->
+
+        <viewer :images="imgList">
+            <img v-for="i in imgList" :src="i.url" :key="i.id" style="width:250px;height:250px;">
+        </viewer>
     </b-container>
 </template>
 
 <script>
     import {get_img} from '../../requestUrl.js';
+    import 'viewerjs/dist/viewer.css'
+    import Vue from "vue"
+    import Viewer from 'v-viewer'
+    Vue.use(Viewer);
     export default {
         name: 'ImgDetail',
         props: {
@@ -59,3 +58,4 @@
         }
     }
 </script>
+

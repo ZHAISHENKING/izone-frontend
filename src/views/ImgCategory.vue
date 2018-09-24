@@ -1,6 +1,6 @@
 <template>
   <b-container class="category">
-    <b-row align-h = “between>
+    <b-row>
       <b-col cols="4" v-for="i in cateList" :key="i.id">
         <b-card :title="i.title"
                 img-src="https://picsum.photos/600/300/?image=25"

@@ -1,6 +1,6 @@
 <template>
     <b-container>
-        <b-row align-h = “between>
+        <b-row style="margin-top:15px;">
             <b-col cols="4" v-for="video in video_list" :key="video.id">
                 <b-card
                         :img-src="video.small_img"
@@ -63,3 +63,9 @@
         }
     }
 </script>
+
+<style>
+    .mb-2{
+        cursor:pointer;
+    }
+</style>
