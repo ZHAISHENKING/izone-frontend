@@ -19,3 +19,4 @@ yarn run build
 ```
 yarn run lint
 ```
+进gui并安装依赖
