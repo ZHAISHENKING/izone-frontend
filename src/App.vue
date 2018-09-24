@@ -3,7 +3,7 @@
 
     <Nav></Nav>
     <div>
-      <img src="http://qiniu.s001.xin/l1p4y.jpg" class="back">
+      <img src="https://qiniu.s001.xin/l1p4y.jpg" class="back">
     </div>
     <router-view></router-view>
   </div>

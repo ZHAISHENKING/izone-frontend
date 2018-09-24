@@ -13,7 +13,7 @@ function baseRequest(method, path, params, data, type) {
     }
     axios.defaults.baseURL = url;
     if (method === 'POST') {
-        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
+        axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=UTF-8';
         return axios.post(path, qs.stringify(data));
     } else if (method === 'GET') {
         return axios.get(path, paramsobj);
