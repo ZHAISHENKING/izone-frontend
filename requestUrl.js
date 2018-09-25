@@ -36,5 +36,5 @@ export let get_all_img = function get_all_img(params){
 };
 
 export let get_img = function get_all_img(params){
-    return baseRequest("GET", '/image/'+params.id, params, '');
+    return baseRequest("POST", '/image/', '', params);
 };
