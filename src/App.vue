@@ -3,7 +3,7 @@
 
     <Nav></Nav>
     <div>
-      <img src="https://qiniu.s001.xin/l1p4y.jpg" class="back">
+      <img :src="imgsrc" class="back">
     </div>
     <router-view></router-view>
   </div>
@@ -17,6 +17,25 @@ export default {
     name: 'app',
     components: {
         Nav
+    },
+    data(){
+        return {
+            ccstyle: "",
+            imgsrc: "",
+        }
+    },
+    mounted: function(){
+        switch (this.ccstyle){
+            case "zhongqiu":
+                require('./assets/css/zhongqiu.css');
+                this.imgsrc="https://qiniu.s001.xin/l1p4y.jpg";
+                break;
+
+            default:
+                require('./assets/css/peien.css');
+                this.imgsrc="https://qiniu.s001.xin/terxt.jpg";
+                break;
+        }
     }
 }
 </script>

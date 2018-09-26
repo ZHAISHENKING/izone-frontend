@@ -1,5 +1,5 @@
 <template>
-    <b-navbar toggleable="md" type="dark">
+    <b-navbar toggleable="md" type="dark" variant="danger">
 
         <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
 
@@ -22,11 +22,10 @@
                     <b-button size="sm" class="my-2 my-sm-0" type="submit">搜索</b-button>
                 </b-nav-form>
 
-                <b-nav-item-dropdown text="Lang" right>
-                    <b-dropdown-item href="#">EN</b-dropdown-item>
-                    <b-dropdown-item href="#">ES</b-dropdown-item>
-                    <b-dropdown-item href="#">RU</b-dropdown-item>
-                    <b-dropdown-item href="#">FA</b-dropdown-item>
+                <b-nav-item-dropdown text="主题" right @selected="change">
+                    <b-dropdown-item>中秋</b-dropdown-item>
+                    <b-dropdown-item>国庆</b-dropdown-item>
+                    <b-dropdown-item value="2">佩恩</b-dropdown-item>
                 </b-nav-item-dropdown>
 
                 <b-nav-item-dropdown right>
@@ -42,3 +41,24 @@
         </b-collapse>
     </b-navbar>
 </template>
+
+<script>
+    export default {
+        name: 'Nav',
+        data(){
+            return {
+                zhuti: ""
+            }
+        },
+        created(){
+
+
+        },
+        methods: {
+          change(){
+              alert("1")
+          }
+
+        }
+    }
+</script>
