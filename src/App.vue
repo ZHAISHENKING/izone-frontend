@@ -20,7 +20,7 @@ export default {
     },
     data(){
         return {
-            ccstyle: "",
+            ccstyle: "guoqing",
             imgsrc: "",
         }
     },
@@ -30,7 +30,9 @@ export default {
                 require('./assets/css/zhongqiu.css');
                 this.imgsrc="https://qiniu.s001.xin/l1p4y.jpg";
                 break;
-
+            case "guoqing":
+                require('./assets/css/zhongqiu.css');
+                this.imgsrc="http://qiniu.s001.xin/ks15n.jpg";
             default:
                 require('./assets/css/peien.css');
                 this.imgsrc="https://qiniu.s001.xin/terxt.jpg";
