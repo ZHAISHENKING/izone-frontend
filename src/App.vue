@@ -1,11 +1,15 @@
 <template>
-  <div id="app">
+  <div class="layout" id="app">
+    <Layout>
+      <Header>
+        <div class="layout-logo">Izone</div>
+        <div class="layout-nav">
+          <Nav></Nav>
+        </div>
 
-    <Nav></Nav>
-    <div>
-      <img :src="imgsrc" class="back">
-    </div>
-    <router-view></router-view>
+      </Header>
+      <router-view></router-view>
+    </Layout>
   </div>
 </template>
 
@@ -20,25 +24,25 @@ export default {
     },
     data(){
         return {
-            ccstyle: "guoqing",
-            imgsrc: "",
+            // ccstyle: "guoqing",
+            // imgsrc: "",
         }
     },
     mounted: function(){
-        switch (this.ccstyle){
-            case "zhongqiu":
-                require('./assets/css/zhongqiu.css');
-                this.imgsrc="https://qiniu.s001.xin/l1p4y.jpg";
-                break;
-            case "guoqing":
-                require('./assets/css/guoqing.css');
-                this.imgsrc="http://qiniu.s001.xin/ks15n.jpg";
-                break;
-            default:
-                require('./assets/css/peien.css');
-                this.imgsrc="https://qiniu.s001.xin/terxt.jpg";
-                break;
-        }
+        // switch (this.ccstyle){
+        //     case "zhongqiu":
+        //         require('./assets/css/zhongqiu.css');
+        //         this.imgsrc="https://qiniu.s001.xin/l1p4y.jpg";
+        //         break;
+        //     case "guoqing":
+        //         require('./assets/css/guoqing.css');
+        //         this.imgsrc="http://qiniu.s001.xin/ks15n.jpg";
+        //         break;
+        //     default:
+        //         require('./assets/css/peien.css');
+        //         this.imgsrc="https://qiniu.s001.xin/terxt.jpg";
+        //         break;
+        // }
     }
 }
 </script>
@@ -60,5 +64,33 @@ export default {
   right:0;
   opacity: .5;
   z-index:-1;
+}
+
+.layout{
+  border: 1px solid #d7dde4;
+  background: #f5f7f9;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.layout-logo{
+  width: 100px;
+  height: 30px;
+  line-height: 30px;
+  font-size: 20px;
+  /*background: #5b6270;*/
+  color:#fff;
+  border-radius: 3px;
+  float: left;
+  position: relative;
+  top: 15px;
+  left: 20px;
+}
+.layout-nav{
+  width: 60%;
+  margin: 0 auto;
+  margin-right: 20px;
+}
+.layout-footer-center{
+  text-align: center;
 }
 </style>

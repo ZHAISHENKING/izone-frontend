@@ -1,25 +1,16 @@
 <template>
-    <b-container>
-        <b-row style="margin-top:15px;">
-            <b-col cols="4" v-for="video in video_list" :key="video.id">
-                <b-card
-                        :img-src="video.small_img"
-                        :id="video.id"
-                        img-alt="Image"
-                        img-top
-                        tag="article"
-                        style="max-width: 20rem;color:#9252b3"
-                        class="mb-2"
-                        @click="ImgShow(video.video_url)">
-                    <p class="text-left">
-                        {{video.desc}}
-                    </p>
-                </b-card>
-            </b-col>
+    <Row style="background:#eee;" :gutter="16">
 
+        <Col v-for="video in video_list" :key="video.id" span="8" style="padding:20px">
+            <Card>
+                <div style="text-align:center;cursor:pointer" @click="ImgShow(video.video_url)" :id="video.id">
+                    <img :src="video.small_img" height="150px">
+                    <h3>{{video.desc}}</h3>
+                </div>
+            </Card>
+        </Col>
 
-        </b-row>
-    </b-container>
+    </Row>
 </template>
 
 <script>

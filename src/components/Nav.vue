@@ -1,45 +1,40 @@
 <template>
-    <b-navbar toggleable="md" type="dark" >
 
-        <b-navbar-toggle target="nav_collapse"></b-navbar-toggle>
+    <Menu mode="horizontal" active-name="1" theme="dark">
+        <MenuItem name="1" to="/">
+            <Icon type="ios-paper" />
+            首页
+        </MenuItem>
+        <MenuItem name="2" to="/img_category">
+            <Icon type="ios-people" />
+            影集
+        </MenuItem>
+        <MenuItem name="3" to="/video">
+            <Icon type="ios-people" />
+            视频
+        </MenuItem>
+        <MenuItem name="4" to="/about">
+            <Icon type="ios-people" />
+            关于我的
+        </MenuItem>
+        <Submenu name="5">
+            <template slot="title">
+                <Icon type="ios-stats" />
+                主题
+            </template>
+            <MenuGroup title="使用">
+                <MenuItem name="3-1">新增和启动</MenuItem>
+                <MenuItem name="3-2">活跃分析</MenuItem>
+                <MenuItem name="3-3">时段分析</MenuItem>
+            </MenuGroup>
+            <MenuGroup title="留存">
+                <MenuItem name="3-4">用户留存</MenuItem>
+                <MenuItem name="3-5">流失用户</MenuItem>
+            </MenuGroup>
+        </Submenu>
 
-        <b-navbar-brand href="#">我的空间</b-navbar-brand>
+    </Menu>
 
-        <b-collapse is-nav id="nav_collapse">
-
-            <b-navbar-nav>
-                <b-nav-item to="/">首页</b-nav-item>
-                <b-nav-item to="/img_category">影集</b-nav-item>
-                <b-nav-item to="/video">视频</b-nav-item>
-                <b-nav-item to="/about">关于我的</b-nav-item>
-            </b-navbar-nav>
-
-            <!-- Right aligned nav items -->
-            <b-navbar-nav class="ml-auto">
-
-                <b-nav-form>
-                    <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
-                    <b-button size="sm" class="my-2 my-sm-0" type="submit">搜索</b-button>
-                </b-nav-form>
-
-                <b-nav-item-dropdown text="主题" right @selected="change">
-                    <b-dropdown-item>中秋</b-dropdown-item>
-                    <b-dropdown-item>国庆</b-dropdown-item>
-                    <b-dropdown-item value="2">佩恩</b-dropdown-item>
-                </b-nav-item-dropdown>
-
-                <b-nav-item-dropdown right>
-                    <!-- Using button-content slot -->
-                    <template slot="button-content">
-                        <em>User</em>
-                    </template>
-                    <b-dropdown-item href="#">个人信息</b-dropdown-item>
-                    <b-dropdown-item href="#">退出</b-dropdown-item>
-                </b-nav-item-dropdown>
-            </b-navbar-nav>
-
-        </b-collapse>
-    </b-navbar>
 </template>
 
 <script>
@@ -47,7 +42,7 @@
         name: 'Nav',
         data(){
             return {
-                zhuti: ""
+
             }
         },
         created(){
@@ -55,9 +50,6 @@
 
         },
         methods: {
-          change(){
-              alert("1")
-          }
 
         }
     }

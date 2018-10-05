@@ -1,22 +1,16 @@
 <template>
-  <b-container class="category">
-    <b-row>
-      <b-col cols="4" v-for="i in cateList" :key="i.id">
-        <b-card :title="i.title"
-                img-src="https://picsum.photos/600/300/?image=25"
-                img-alt="Image"
-                img-top
-                tag="article"
-                style="max-width: 20rem;"
-                class="mb-2">
-          <!--<p class="card-text">-->
-            <!--Some quick example text to build on the card title and make up the bulk of the card's content.-->
-          <!--</p>-->
-          <b-button variant="danger" @click="Detail(i.id)">Look</b-button>
-        </b-card>
-      </b-col>
-    </b-row>
-  </b-container>
+  <Row style="background:#eee;" :gutter="16">
+    <Col v-for="i in cateList" :key="i.id" span="8" style="padding:20px">
+      <Card>
+        <div style="text-align:center;cursor:pointer" @click="Detail(i.id)">
+          <img src="https://picsum.photos/600/300/?image=25" width="100%">
+          <h3>{{i.title}}</h3>
+        </div>
+      </Card>
+    </Col>
+
+  </Row>
+
 </template>
 
 <script>

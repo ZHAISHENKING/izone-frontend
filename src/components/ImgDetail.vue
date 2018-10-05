@@ -1,13 +1,13 @@
 <template>
-    <b-container fluid class="p-4 bg-dark img-detail">
-        <!--<div class="images" v-viewer>-->
-            <!--<img v-for="i in imgList" :src="i.url" :key="i.id">-->
-        <!--</div>-->
 
-        <viewer :images="imgList">
-            <img v-for="i in imgList" :src="i.url" :key="i.id" style="width:250px;height:250px;">
-        </viewer>
-    </b-container>
+    <Row :gutter="16" >
+        <Col v-for="i in imgList" :key="i.id" span="8" style="padding:20px">
+            <viewer :images="imgList">
+                <img  :src="i.url" style="width:300px;height:250px;">
+            </viewer>
+        </Col>
+    </Row>
+
 </template>
 
 <script>
