@@ -10,13 +10,15 @@
       </Header>
       <router-view></router-view>
     </Layout>
+
+
   </div>
 </template>
 
 <script>
 // import "./assets/css/common.css"
-import Nav from "@/components/Nav.vue"
 
+import Nav from "@/components/Nav.vue"
 export default {
     name: 'app',
     components: {
@@ -87,6 +89,7 @@ export default {
 }
 .layout-nav{
   width: 60%;
+  font-weight:700;
   margin: 0 auto;
   margin-right: 20px;
 }
