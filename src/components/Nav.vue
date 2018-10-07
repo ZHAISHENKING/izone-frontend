@@ -17,21 +17,25 @@
             <Icon type="ios-people" />
             关于我的
         </MenuItem>
-        <Submenu name="5">
-            <template slot="title">
-                <Icon type="ios-stats" />
-                主题
-            </template>
-            <MenuGroup title="使用">
-                <MenuItem name="3-1">新增和启动</MenuItem>
-                <MenuItem name="3-2">活跃分析</MenuItem>
-                <MenuItem name="3-3">时段分析</MenuItem>
-            </MenuGroup>
-            <MenuGroup title="留存">
-                <MenuItem name="3-4">用户留存</MenuItem>
-                <MenuItem name="3-5">流失用户</MenuItem>
-            </MenuGroup>
-        </Submenu>
+        <MenuItem name="5" to="/game">
+            <Icon type="ios-people" />
+            小游戏
+        </MenuItem>
+        <!--<Submenu name="5">-->
+            <!--<template slot="title">-->
+                <!--<Icon type="ios-stats" />-->
+                <!--主题-->
+            <!--</template>-->
+            <!--<MenuGroup title="使用">-->
+                <!--<MenuItem name="3-1">新增和启动</MenuItem>-->
+                <!--<MenuItem name="3-2">活跃分析</MenuItem>-->
+                <!--<MenuItem name="3-3">时段分析</MenuItem>-->
+            <!--</MenuGroup>-->
+            <!--<MenuGroup title="留存">-->
+                <!--<MenuItem name="3-4">用户留存</MenuItem>-->
+                <!--<MenuItem name="3-5">流失用户</MenuItem>-->
+            <!--</MenuGroup>-->
+        <!--</Submenu>-->
 
     </Menu>
 

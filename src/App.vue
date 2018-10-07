@@ -1,7 +1,7 @@
 <template>
   <div class="layout" id="app">
     <Layout>
-      <Header>
+      <Header v-if="isGame">
         <div class="layout-logo">Izone</div>
         <div class="layout-nav">
           <Nav></Nav>
@@ -17,7 +17,7 @@
 
 <script>
 // import "./assets/css/common.css"
-
+import {Init} from './assets/js/common'
 import Nav from "@/components/Nav.vue"
 export default {
     name: 'app',
@@ -26,25 +26,28 @@ export default {
     },
     data(){
         return {
+            isGame:true
             // ccstyle: "guoqing",
             // imgsrc: "",
         }
     },
-    mounted: function(){
-        // switch (this.ccstyle){
-        //     case "zhongqiu":
-        //         require('./assets/css/zhongqiu.css');
-        //         this.imgsrc="https://qiniu.s001.xin/l1p4y.jpg";
-        //         break;
-        //     case "guoqing":
-        //         require('./assets/css/guoqing.css');
-        //         this.imgsrc="http://qiniu.s001.xin/ks15n.jpg";
-        //         break;
-        //     default:
-        //         require('./assets/css/peien.css');
-        //         this.imgsrc="https://qiniu.s001.xin/terxt.jpg";
-        //         break;
-        // }
+    methods:{
+        routeChange(to){
+            if(to.name=="game"){
+                this.isGame=false;
+            }else if(to.name=="home"){
+                Init();
+            }
+        }
+    },
+    created(){
+        if(this.$route.name=="game"){
+            this.isGame=false
+        }
+        // if()
+    },
+    watch:{
+        '$route':"routeChange"
     }
 }
 </script>

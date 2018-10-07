@@ -6,6 +6,7 @@ import ImgCategory from './views/ImgCategory'
 import ImgDetail from '@/components/ImgDetail.vue'
 import Video from './views/Video'
 import VideoDetail from '@/components/VideoDetail'
+import Game from './views/Game'
 
 Vue.use(Router);
 
@@ -16,6 +17,7 @@ Vue.use(Router);
         {path: '/photo', name: 'photo', component: ImgDetail},
         {path: '/video', name: 'video', component: Video},
         {path: '/iframe', name: 'video_show', component: VideoDetail},
+        {path: '/game', name: 'game', component:Game}
     ];
 
 
