@@ -12,7 +12,7 @@
       <span class="r ml" />
       <span class="r ml" />
     </div>
-    <h1>{{title}}</h1>
+    <h1>俄罗斯方块</h1>
     <div class="view">
       <b class="c" />
       <div class="clear" />
@@ -117,7 +117,7 @@
     export default {
         name: 'Decorate',
         computed: {
-            title: () => i18n.title[lan],
+            // title: () => i18n.title[lan],
             github: () => i18n.github[lan],
             QRTitle: () => i18n.QRNotice[lan],
             QRCode: () => i18n.QRCode[lan]

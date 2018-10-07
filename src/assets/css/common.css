@@ -13,7 +13,7 @@ html,body {
     font:16px/1.4 'Lato',sans-serif;
     color:#fefeff;
     -webkit-font-smoothing:antialiased;
-    font-smoothing:antialiased;
+    background:#fff;
 }
 body {
     background:rgb(8,5,16);

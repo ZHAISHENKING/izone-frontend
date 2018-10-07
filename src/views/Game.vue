@@ -31,6 +31,7 @@
 <style lang="less">
     @import '../app.less';
     @import '../loader.less';
+
 </style>
 
 <script src="../app.js"></script>

@@ -17,7 +17,6 @@
 
 <script>
 // import "./assets/css/common.css"
-import {Init} from './assets/js/common'
 import Nav from "@/components/Nav.vue"
 export default {
     name: 'app',
@@ -35,8 +34,9 @@ export default {
         routeChange(to){
             if(to.name=="game"){
                 this.isGame=false;
-            }else if(to.name=="home"){
-                Init();
+                require('./assets/css/peien.css')
+            }else{
+                this.isGame=true;
             }
         }
     },
