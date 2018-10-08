@@ -1,4 +1,5 @@
 <template>
+    <div class="box">
     <div class="app" :style="size">
         <div class="rect" :class="drop?'drop':''">
             <Decorate/>
@@ -26,12 +27,22 @@
         <Keyboard :filling='filling' />
         <Guide/>
     </div>
+    </div>
 </template>
 
 <style lang="less">
     @import '../app.less';
     @import '../loader.less';
-
+    html,body{
+        height:200%;
+    }
+    .box{
+        position:absolute;
+        width:100%;
+        height:100%;
+        overflow:hidden;
+        background:#009688 !important;;
+    }
 </style>
 
 <script src="../app.js"></script>

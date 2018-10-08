@@ -34,7 +34,6 @@ export default {
         routeChange(to){
             if(to.name=="game"){
                 this.isGame=false;
-                require('./assets/css/peien.css')
             }else{
                 this.isGame=true;
             }
@@ -52,7 +51,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
