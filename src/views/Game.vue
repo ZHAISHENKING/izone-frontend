@@ -34,7 +34,7 @@
     @import '../app.less';
     @import '../loader.less';
     html,body{
-        height:200%;
+        height:100%;
     }
     .box{
         position:absolute;
