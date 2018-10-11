@@ -1,15 +1,14 @@
 <template>
   <div class="layout" id="app">
-    <Layout>
-      <Header v-if="isGame">
-        <div class="layout-logo">Izone</div>
-        <div class="layout-nav">
-          <Nav></Nav>
-        </div>
+      <div class="header" v-if="isGame">
+        <Nav></Nav>
+      </div>
 
-      </Header>
-      <router-view></router-view>
-    </Layout>
+
+      <router-view style="min-height:600px;"></router-view>
+      <footer v-if="isGame">
+        宅神个人网站 &copy;2018 陕ICP备18005197号-1
+      </footer>
 
 
   </div>
@@ -69,33 +68,7 @@ export default {
   opacity: .5;
   z-index:-1;
 }
-
-.layout{
-  border: 1px solid #d7dde4;
-  background: #f5f7f9;
-  border-radius: 4px;
-  overflow: hidden;
-}
-.layout-logo{
-  width: 100px;
-  height: 30px;
-  line-height: 30px;
-  font-size: 20px;
-  /*background: #5b6270;*/
-  color:#fff;
-  border-radius: 3px;
-  float: left;
-  position: relative;
-  top: 15px;
-  left: 20px;
-}
-.layout-nav{
-  width: 60%;
-  font-weight:700;
-  margin: 0 auto;
-  margin-right: 20px;
-}
-.layout-footer-center{
-  text-align: center;
-}
+  footer{
+    background:rgb(84, 92, 100)
+  }
 </style>

@@ -35,6 +35,7 @@
     @import '../loader.less';
     html,body{
         height:100%;
+        font-size:14px;
     }
     .box{
         position:absolute;
