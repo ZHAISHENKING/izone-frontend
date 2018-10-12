@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!--<canvas id="canvas"></canvas>-->
-    <!--<Banner></Banner>-->
+    <Banner></Banner>
 
   </div>
 </template>

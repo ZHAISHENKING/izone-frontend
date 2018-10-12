@@ -14,10 +14,10 @@
 
   <el-row :gutter="16">
     <el-col :span="8" v-for="i in cateList" :key="i.id">
-      <el-card :body-style="{ padding: '20px' }" @click="Detail(i.id)">
+      <el-card :body-style="{ padding: '20px' }">
         <img src="https://picsum.photos/600/300/?image=25" class="image">
         <div style="padding: 14px;">
-          <span style="color:#b5204d">{{i.title}}</span>
+          <span style="color:#b5204d;cursor: pointer;" @click="Detail(i.id)">{{i.title}}</span>
 
         </div>
       </el-card>

@@ -1,16 +1,29 @@
 <template>
-    <Row style="background:#eee;" :gutter="16">
+    <!--<Row style="background:#eee;" :gutter="16">-->
 
-        <Col v-for="video in video_list" :key="video.id" span="8" style="padding:20px">
-            <Card>
-                <div style="text-align:center;cursor:pointer" @click="ImgShow(video.video_url)" :id="video.id">
-                    <img :src="video.small_img" height="150px">
-                    <h3>{{video.desc}}</h3>
+        <!--<Col v-for="video in video_list" :key="video.id" span="8" style="padding:20px">-->
+            <!--<Card>-->
+                <!--<div style="text-align:center;cursor:pointer" @click="ImgShow(video.video_url)" :id="video.id">-->
+                    <!--<img :src="video.small_img" height="150px">-->
+                    <!--<h3>{{video.desc}}</h3>-->
+                <!--</div>-->
+            <!--</Card>-->
+        <!--</Col>-->
+
+    <!--</Row>-->
+
+    <el-row :gutter="16">
+        <el-col :span="8" v-for="i in video_list" :key="i.id">
+            <el-card :body-style="{ padding: '20px' }" >
+                <img :src="i.small_img" class="image" height="150px" @click="ImgShow(i.video_url)">
+                <div style="padding: 14px;">
+                    <!--<img  height="150px">-->
+                    <span style="color:#b5204d">{{i.desc}}</span>
+
                 </div>
-            </Card>
-        </Col>
-
-    </Row>
+            </el-card>
+        </el-col>
+    </el-row>
 </template>
 
 <script>
@@ -56,7 +69,7 @@
 </script>
 
 <style>
-    .mb-2{
+    .image{
         cursor:pointer;
     }
 </style>

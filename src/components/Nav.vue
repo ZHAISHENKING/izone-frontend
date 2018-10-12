@@ -5,7 +5,7 @@
             mode="horizontal"
             router
             @select="handleSelect"
-            background-color="#545c64"
+            :background-color="color1"
             text-color="#fff"
             active-text-color="#ffd04b">
         <el-menu-item index="/">首页</el-menu-item>
@@ -13,6 +13,10 @@
         <el-menu-item index="/video">视频</el-menu-item>
         <el-menu-item index="/about">关于我的</el-menu-item>
         <el-menu-item index="/game">小游戏</el-menu-item>
+        <el-tooltip class="item" effect="dark" content="颜色不好看？来来来自己换" placement="right-start">
+            <el-color-picker v-model="color1" ref="color1" @change="colorChange"></el-color-picker>
+        </el-tooltip>
+
     </el-menu>
 
 
@@ -49,15 +53,37 @@
         name: 'Nav',
         data(){
             return {
-                activeIndex: '/'
+                activeIndex: '/',
+                color1: 'rgb(84, 92, 100)'
             }
         },
         created(){
 
-
         },
         methods: {
-            handleSelect(){}
+            handleSelect(){},
+            colorChange(){
+                this.$emit('change', this.color1);
+            }
         }
     }
 </script>
+<style lang="less">
+    #app .el-color-picker__trigger{
+        height:16px;
+        width:16px;
+        border-radius:50%;
+        top: 20px;
+    }
+    #app .el-color-picker__color{
+        border:none;
+        width:8px;
+        height:8px;
+    }
+    #app .el-color-picker__color-inner{
+        border-radius:50%;
+    }
+    .demo{
+        color:#fff;
+    }
+</style>

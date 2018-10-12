@@ -1,6 +1,5 @@
 <template>
-    <md-card>
-        <md-card-media>
+
             <div class="item">
                 <div class="player">
                     <video-player class="vjs-custom-skin"
@@ -12,8 +11,7 @@
                     </video-player>
                 </div>
             </div>
-        </md-card-media>
-    </md-card>
+
 
 
 </template>

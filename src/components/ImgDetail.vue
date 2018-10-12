@@ -1,13 +1,12 @@
 <template>
 
-    <Row :gutter="16" >
-        <Col v-for="i in imgList" :key="i.id" span="8" style="padding:20px">
+    <el-row :gutter="16">
+        <el-col :span="8" v-for="i in imgList" :key="i.id">
             <viewer :images="imgList">
                 <img  :src="i.url" style="width:300px;height:250px;">
             </viewer>
-        </Col>
-    </Row>
-
+        </el-col>
+    </el-row>
 </template>
 
 <script>
