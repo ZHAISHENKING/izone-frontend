@@ -1,11 +1,11 @@
 <template>
   <div class="layout" id="app">
       <div class="header" v-if="isGame">
-        <Nav :color1="color1" v-on:change="colorChange"></Nav>
+        <Nav v-on:change="colorChange"></Nav>
       </div>
 
       <router-view style="min-height:600px;"></router-view>
-      <footer v-if="isGame" :style="{'background-color':color1}">
+      <footer v-if="isGame" :style="{'background-color':color}">
         宅神个人网站 &copy;2018 陕ICP备18005197号-1
       </footer>
 
@@ -25,7 +25,7 @@ export default {
             isGame:true,
             // ccstyle: "guoqing",
             // imgsrc: "",
-            color1:"rgb(84, 92, 100)"
+            color:"rgb(84, 92, 100)"
         }
     },
     methods:{
@@ -37,13 +37,16 @@ export default {
             }
         },
         colorChange(msg){
-            this.color1=msg;
+            this.color=msg;
         }
     },
     created(){
         if(this.$route.name=="game"){
             this.isGame=false
         }
+    },
+    mounted(){
+        this.color="rgb(84, 92, 100)"
     },
     watch:{
         '$route':"routeChange"

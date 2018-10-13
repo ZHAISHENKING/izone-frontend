@@ -31,10 +31,14 @@ export let get_all_video = function get_all_video(params){
     return baseRequest("GET", '/video/all/', params, '');
 };
 
-export let get_all_img = function get_all_img(params){
+export let get_all_img = function get_img(params){
     return baseRequest("GET", '/image/all/', params, '');
 };
 
 export let get_img = function get_all_img(params){
     return baseRequest("POST", '/image/', '', params);
+};
+
+export let get_code = function get_code(params){
+    return baseRequest("GET", '/user/code/', params, '');
 };
