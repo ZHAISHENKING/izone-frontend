@@ -1,7 +1,7 @@
 <template>
   <div class="layout" id="app">
       <div class="header" v-if="isGame">
-        <Nav v-on:change="colorChange"></Nav>
+        <Nav v-on:change="colorChange" ref="child"></Nav>
       </div>
 
       <router-view style="min-height:600px;"></router-view>
@@ -14,6 +14,7 @@
 
 <script>
 // import "./assets/css/common.css"
+import store from 'store2'
 import Nav from "@/components/Nav.vue"
 export default {
     name: 'app',
@@ -46,7 +47,15 @@ export default {
         }
     },
     mounted(){
-        this.color="rgb(84, 92, 100)"
+        this.color="rgb(84, 92, 100)";
+        // 如果jwt存在,登录
+        if(localStorage.getItem("jwt")){
+            this.$refs.child.isLogin = true;
+            this.$refs.child.username = store.get("name");
+            // console.log(this.$refs.child)
+        }else{
+            this.$refs.isLogin = false;
+        }
     },
     watch:{
         '$route':"routeChange"

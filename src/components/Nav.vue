@@ -17,9 +17,25 @@
         <el-tooltip class="item" effect="dark" content="颜色不好看？来来来自己换" placement="right-start">
             <el-color-picker v-model="color1" ref="color1" @change="colorChange"></el-color-picker>
         </el-tooltip>
-        <el-row type="flex" align="middle" justify="end" style="float:right;top:10px;right:10px;">
+
+        <!--登录注册-->
+        <el-row type="flex" align="middle" justify="end" style="float:right;top:20px;right:30px;" v-if="isLogin">
+            <el-col>
+                <el-dropdown trigger="click" @command="handleCommand">
+                  <span class="el-dropdown-link">
+                    {{username}}<i class="el-icon-arrow-down el-icon--right"></i>
+                  </span>
+                    <el-dropdown-menu slot="dropdown">
+                        <el-dropdown-item command="1">LOG OUT</el-dropdown-item>
+                        <!--<el-dropdown-item>狮子头</el-dropdown-item>-->
+
+                    </el-dropdown-menu>
+                </el-dropdown>
+            </el-col>
+        </el-row>
+        <el-row type="flex" align="middle" justify="end" style="float:right;top:10px;right:10px;" v-else="isLogin">
             <el-button round plain @click="dialogFormVisible=true">SIGN IN</el-button>
-            <el-button round plain>SIGN UP</el-button>
+            <el-button round plain @click="dialogLoginForm=true">SIGN UP</el-button>
         </el-row>
 
         <el-dialog title="Register" :visible.sync="dialogFormVisible" >
@@ -27,20 +43,27 @@
                 <el-form-item label="Name">
                     <el-input v-model="form.name" autocomplete="off"></el-input>
                 </el-form-item>
-                <el-form-item label="Password">
-                    <el-input v-model="form.password" autocomplete="off"></el-input>
-
-                </el-form-item>
                 <el-form-item label="Code">
-                    <el-input v-model="form.code" autocomplete="off"></el-input>
+                    <el-input v-model="form.code" autocomplete="off" width="65%"></el-input>
                     <img :src="'data:image/png;base64,'+code" alt="" style="width:120px;">
                 </el-form-item>
-                <el-form-item label="Check Password">
-                    <el-input v-model="form.cpassword" autocomplete="off"></el-input>
+                <el-form-item label="Password">
+                    <el-input v-model="form.password" autocomplete="off" type="password"></el-input>
                 </el-form-item>
-
             </el-form>
-            <el-button type="primary" @click="dialogFormVisible = false">Submit</el-button>
+            <el-button type="primary" @click="Register">Submit</el-button>
+        </el-dialog>
+
+        <el-dialog title="Login" :visible.sync="dialogLoginForm" >
+            <el-form :model="loginForm" label-width="100px" class="demo-ruleForm">
+                <el-form-item label="Name">
+                    <el-input v-model="loginForm.name" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="Password">
+                    <el-input v-model="loginForm.password" autocomplete="off" type="password"></el-input>
+                </el-form-item>
+            </el-form>
+            <el-button type="primary" @click="Login">Submit</el-button>
         </el-dialog>
     </el-menu>
 
@@ -48,22 +71,34 @@
 </template>
 
 <script>
-    import {get_code} from "../../requestUrl";
+    import {
+        get_code,
+        register,
+        login
+    } from "../../requestUrl";
+    import store from 'store2';
+    import sha1 from 'sha1';
 
     export default {
         name: 'Nav',
         data(){
             return {
                 activeIndex: '/',
+                username:'zhai',
                 color1: 'rgb(84, 92, 100)',
                 dialogFormVisible: false,
                 form:{
                     name:"",
                     code:"",
-                    password:"",
-                    cpassword:""
+                    password:""
                 },
-                code:''
+                loginForm:{
+                    name:"",
+                    password:""
+                },
+                dialogLoginForm:false,
+                code:'',
+                isLogin:false,
             }
         },
         created(){
@@ -78,6 +113,46 @@
                 get_code({}).then((data)=>{
                     this.code=data.data;
                 })
+            },
+            Register(){
+                // console.log(this.form.code);
+                register({
+                    code:this.form.code,
+                    username:this.form.name,
+                    password:sha1(this.form.password)
+                }).then((data)=>{
+                    data = data.data;
+                    if(data.code==0){
+                        localStorage.setItem('jwt', data.data.jwt);
+                        store.set("name",data.data.username);
+                        this.dialogFormVisible=false;
+                        this.isLogin = true;
+                        this.username = data.data.username;
+                    }
+                })
+            },
+            Login(){
+                login({
+                    username:this.loginForm.name,
+                    password:sha1(this.loginForm.password)
+                }).then((data)=>{
+                    data = data.data;
+                    if(data.code==0){
+                        localStorage.setItem('jwt', data.data.jwt);
+                        store.set("name",data.data.username);
+                        this.dialogLoginForm=false;
+                        this.isLogin = true;
+                        this.username = data.data.username;
+                    }
+                })
+            },
+            handleCommand(commond){
+                if(commond=="1"){
+                    localStorage.setItem('jwt', "");
+                    store.set("name","");
+                    this.isLogin = false;
+                }
+
             }
         },
         mounted(){
@@ -102,5 +177,9 @@
     }
     .demo{
         color:#fff;
+    }
+    .el-dropdown-link{
+        color:#fff;
+        cursor: pointer;
     }
 </style>

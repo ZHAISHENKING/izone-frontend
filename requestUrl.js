@@ -42,3 +42,11 @@ export let get_img = function get_all_img(params){
 export let get_code = function get_code(params){
     return baseRequest("GET", '/user/code/', params, '');
 };
+
+export let register = function register(params){
+    return baseRequest("POST", '/user/register/', '', params)
+};
+
+export let login = function login(params){
+    return baseRequest("POST", '/user/login/', '', params)
+};
