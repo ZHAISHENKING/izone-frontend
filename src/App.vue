@@ -52,6 +52,7 @@ export default {
         if(localStorage.getItem("jwt")){
             this.$refs.child.isLogin = true;
             this.$refs.child.username = store.get("name");
+            this.$refs.child.isSuper = store.get('user').is_super;
             // console.log(this.$refs.child)
         }else{
             this.$refs.isLogin = false;

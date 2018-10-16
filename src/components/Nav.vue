@@ -26,8 +26,12 @@
                     {{username}}<i class="el-icon-arrow-down el-icon--right"></i>
                   </span>
                     <el-dropdown-menu slot="dropdown">
-                        <el-dropdown-item command="1">LOG OUT</el-dropdown-item>
-                        <!--<el-dropdown-item>狮子头</el-dropdown-item>-->
+
+                        <div v-if="isSuper">
+                            <el-dropdown-item command="2">上传图片</el-dropdown-item>
+                            <el-dropdown-item command="3">上传视频</el-dropdown-item>
+                        </div>
+                        <el-dropdown-item command="1">退出</el-dropdown-item>
 
                     </el-dropdown-menu>
                 </el-dropdown>
@@ -92,6 +96,7 @@
                     code:"",
                     password:""
                 },
+                isSuper:false,
                 loginForm:{
                     name:"",
                     password:""
@@ -125,8 +130,11 @@
                     if(data.code==0){
                         localStorage.setItem('jwt', data.data.jwt);
                         store.set("name",data.data.username);
+                        store.set("user",data.data);
+
                         this.dialogFormVisible=false;
                         this.isLogin = true;
+                        this.isSuper = data.data.is_super;
                         this.username = data.data.username;
                     }
                 })
@@ -140,8 +148,10 @@
                     if(data.code==0){
                         localStorage.setItem('jwt', data.data.jwt);
                         store.set("name",data.data.username);
+                        store.set("user",data.data);
                         this.dialogLoginForm=false;
                         this.isLogin = true;
+                        this.isSuper = data.data.is_super;
                         this.username = data.data.username;
                     }
                 })
@@ -150,7 +160,13 @@
                 if(commond=="1"){
                     localStorage.setItem('jwt', "");
                     store.set("name","");
+                    store.set("user",'');
+
                     this.isLogin = false;
+                }else if(commond=="2"){
+                    window.open('https://oj.s001.xin/api/upload/')
+                }else if(commond=="3"){
+                    window.open('https://oj.s001.xin/api/up_video/')
                 }
 
             }
