@@ -1,25 +1,22 @@
 <template>
-    <el-menu
-            :default-active="activeIndex"
-            class="el-menu-demo"
-            mode="horizontal"
-            router
-            @select="handleSelect"
-            :background-color="color1"
-            text-color="#fff"
-            active-text-color="#ffd04b">
-        <el-menu-item index="/">HOME</el-menu-item>
-        <el-menu-item index="/img_category">PHOTO</el-menu-item>
-        <el-menu-item index="/video">VIDEO</el-menu-item>
-        <el-menu-item index="/about">ABOUT ME</el-menu-item>
-        <el-menu-item index="/game">GAME</el-menu-item>
+    <div class="home-nav">
+        <el-menu
+                :default-active="activeIndex"
+                class="el-menu-demo"
+                mode="horizontal"
+                router
+                @select="handleSelect"
+                text-color="#fff"
+                active-text-color="#ffd04b">
+            <el-menu-item index="/">HOME</el-menu-item>
+            <el-menu-item index="/img_category">PHOTO</el-menu-item>
+            <el-menu-item index="/video">VIDEO</el-menu-item>
+            <el-menu-item index="/game">GAME</el-menu-item>
 
-        <el-tooltip class="item" effect="dark" content="颜色不好看？来来来自己换" placement="right-start">
-            <el-color-picker v-model="color1" ref="color1" @change="colorChange"></el-color-picker>
-        </el-tooltip>
 
+        </el-menu>
         <!--登录注册-->
-        <el-row type="flex" align="middle" justify="end" style="float:right;top:20px;right:30px;" v-if="isLogin">
+        <el-row type="flex" align="middle" justify="end" v-if="isLogin" class="login">
             <el-col>
                 <el-dropdown trigger="click" @command="handleCommand">
                   <span class="el-dropdown-link">
@@ -37,7 +34,7 @@
                 </el-dropdown>
             </el-col>
         </el-row>
-        <el-row type="flex" align="middle" justify="end" style="float:right;top:10px;right:10px;" v-else="isLogin">
+        <el-row type="flex" align="middle" justify="end" v-else="isLogin" class="login">
             <el-button round plain @click="dialogFormVisible=true">SIGN IN</el-button>
             <el-button round plain @click="dialogLoginForm=true">SIGN UP</el-button>
         </el-row>
@@ -69,7 +66,8 @@
             </el-form>
             <el-button type="primary" @click="Login">Submit</el-button>
         </el-dialog>
-    </el-menu>
+    </div>
+
 
 
 </template>
@@ -191,11 +189,34 @@
     #app .el-color-picker__color-inner{
         border-radius:50%;
     }
+    .home-nav{
+        display: flex;
+        background:#000;
+        justify-content: center;
+    }
     .demo{
         color:#fff;
     }
     .el-dropdown-link{
         color:#fff;
         cursor: pointer;
+    }
+    .el-menu-demo{
+        background:#000 !important;
+        width:70%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .login{
+        position: absolute !important;
+        right: 10px;
+        top: 10px;
+    }
+    .home-nav .el-menu.el-menu--horizontal{
+        border-bottom:none;
+    }
+    .home-nav .el-menu .el-menu-item:hover{
+        color:rgb(255, 208, 75) !important;
+        background:#000 !important;
     }
 </style>

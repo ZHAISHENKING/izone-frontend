@@ -1,8 +1,17 @@
 <template>
   <div class="home">
+    <div class="back">
+      <img src="https://qiniu.s001.xin/j73nv.jpg" alt="">
+    </div>
     <!--<canvas id="canvas"></canvas>-->
     <!--<Banner></Banner>-->
-
+    <div class="home-center">
+      <h1>Share your life.</h1>
+      <br>
+      <p><span>--Hello,I am the god of the house.</span></p>
+      <br>
+      <button @click="$parent.show = !$parent.show">BUTTON</button>
+    </div>
   </div>
 </template>
 
@@ -16,7 +25,8 @@ export default {
 
   name: 'home',
   components:{
-      Banner:Banner
+      Banner:Banner,
+      show:false
   },
   mounted(){
       // Init();
@@ -27,7 +37,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped lang="less">
 
   footer{
     height: 3.5em;
@@ -42,5 +52,39 @@ export default {
     bottom: 0;
     color:#fff;
     background:rgb(84, 92, 100);
+  }
+  .home{
+    background:#000;
+  }
+  .home-center{
+    width:50%;
+    height:50%;
+    margin-top:10%;
+    margin-left:25%;
+    position: absolute;
+    flex-flow:column;
+    color:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
+      font-size:4em;
+      font-family: unset;
+    }
+    p{
+      margin-left:25%;
+      font-size:15px;
+    }
+    button{
+      margin-top:4em;
+      background:#efcc19;
+      color:#000;
+      font-weight: bold;
+      border-radius:5px;
+      width:7em;
+      height:3em;
+      padding:0.2em 0.1em;
+    }
+
   }
 </style>

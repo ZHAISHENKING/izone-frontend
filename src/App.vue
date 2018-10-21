@@ -1,13 +1,15 @@
 <template>
   <div class="layout" id="app">
-      <div class="header" v-if="isGame">
-        <Nav v-on:change="colorChange" ref="child"></Nav>
-      </div>
+      <transition name="el-fade-in">
+          <div class="header" v-if="isGame" v-show="show">
+              <Nav v-on:change="colorChange" ref="child"></Nav>
+          </div>
+      </transition>
 
-      <router-view style="min-height:600px;"></router-view>
-      <footer v-if="isGame" :style="{'background-color':color}">
-        宅神个人网站 &copy;2018 陕ICP备18005197号-1
-      </footer>
+      <router-view style="min-height:800px;"></router-view>
+      <!--<footer v-if="isGame" :style="{'background-color':color}">-->
+        <!--宅神个人网站 &copy;2018 陕ICP备18005197号-1-->
+      <!--</footer>-->
 
   </div>
 </template>
@@ -26,7 +28,8 @@ export default {
             isGame:true,
             // ccstyle: "guoqing",
             // imgsrc: "",
-            color:"rgb(84, 92, 100)"
+            color:"rgb(84, 92, 100)",
+            show:false
         }
     },
     methods:{
