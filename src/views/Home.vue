@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <div class="back">
-      <img src="https://qiniu.s001.xin/j73nv.jpg" alt="">
+    <div >
+      <img src="https://qiniu.s001.xin/j73nv.jpg" alt="" class="back">
     </div>
     <!--<canvas id="canvas"></canvas>-->
     <!--<Banner></Banner>-->
@@ -54,7 +54,7 @@ export default {
     background:rgb(84, 92, 100);
   }
   .home{
-    background:#000;
+    background: rgba(0,0,0,.95);
   }
   .home-center{
     width:50%;
@@ -85,6 +85,16 @@ export default {
       height:3em;
       padding:0.2em 0.1em;
     }
-
+    .back{
+      height:100%;
+      width:100%;
+      position:fixed;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+      opacity: .8;
+      z-index:-1;
+    }
   }
 </style>

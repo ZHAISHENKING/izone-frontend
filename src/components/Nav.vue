@@ -191,7 +191,7 @@
     }
     .home-nav{
         display: flex;
-        background:#000;
+        background: rgba(0,0,0,.95);
         justify-content: center;
     }
     .demo{
@@ -202,7 +202,7 @@
         cursor: pointer;
     }
     .el-menu-demo{
-        background:#000 !important;
+        background: rgba(0,0,0,.95) !important;
         width:70%;
         display: flex;
         justify-content: space-between;
