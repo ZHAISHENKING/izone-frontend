@@ -1,12 +1,12 @@
 <template>
   <div class="layout" id="app">
-      <transition name="el-fade-in">
+      <transition name="el-fade-in-linear">
           <div class="header" v-if="isGame" v-show="show">
               <Nav v-on:change="colorChange" ref="child"></Nav>
           </div>
       </transition>
 
-      <router-view style="min-height:800px;"></router-view>
+      <router-view style="min-height:800px;margin-top:4em;"></router-view>
       <!--<footer v-if="isGame" :style="{'background-color':color}">-->
         <!--宅神个人网站 &copy;2018 陕ICP备18005197号-1-->
       <!--</footer>-->
@@ -68,6 +68,8 @@ export default {
 </script>
 
 <style lang="less">
+@import '//at.alicdn.com/t/font_415648_2g591ywa14z33di.css';
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -84,6 +86,12 @@ export default {
   right:0;
   opacity: .5;
   z-index:-1;
+}
+.header{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index:100;
 }
   /*footer{*/
     /*background:rgb(84, 92, 100)*/

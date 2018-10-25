@@ -35,8 +35,11 @@
             </el-col>
         </el-row>
         <el-row type="flex" align="middle" justify="end" v-else="isLogin" class="login">
-            <el-button round plain @click="dialogFormVisible=true">SIGN IN</el-button>
-            <el-button round plain @click="dialogLoginForm=true">SIGN UP</el-button>
+            <span>
+                <i class="icon-yonghu"></i>
+            </span>
+            <span @click="dialogFormVisible=true" class="sign-span">sign in</span>
+            <!--<el-button round plain @click="dialogLoginForm=true">SIGN UP</el-button>-->
         </el-row>
 
         <el-dialog title="Register" :visible.sync="dialogFormVisible" >
@@ -218,5 +221,11 @@
     .home-nav .el-menu .el-menu-item:hover{
         color:rgb(255, 208, 75) !important;
         background:#000 !important;
+    }
+    .sign-span{
+        font-size:12px;
+        color:#fff;
+        line-height:3em;
+        cursor:pointer;
     }
 </style>

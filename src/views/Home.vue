@@ -6,7 +6,7 @@
     <!--<canvas id="canvas"></canvas>-->
     <!--<Banner></Banner>-->
     <div class="home-center">
-      <h1>Share your life.</h1>
+      <h1>SHARE MY LIFE.</h1>
       <br>
       <p><span>--Hello,I am the god of the house.</span></p>
       <br>
@@ -84,6 +84,10 @@ export default {
       width:7em;
       height:3em;
       padding:0.2em 0.1em;
+      cursor:pointer;
+    }
+    button:focus{
+      outline:none;
     }
     .back{
       height:100%;
