@@ -35,21 +35,19 @@
             </el-col>
         </el-row>
         <el-row type="flex" align="middle" justify="end" v-else="isLogin" class="login">
-            <span>
-                <i class="icon-yonghu"></i>
-            </span>
-            <span @click="dialogFormVisible=true" class="sign-span">sign in</span>
+
+            <span @click="dialogLoginForm=true" class="sign-span">sign in</span>
             <!--<el-button round plain @click="dialogLoginForm=true">SIGN UP</el-button>-->
         </el-row>
 
-        <el-dialog title="Register" :visible.sync="dialogFormVisible" >
+        <el-dialog title="Register" :visible.sync="dialogFormVisible" width="40%">
             <el-form :model="form" label-width="100px" class="demo-ruleForm">
                 <el-form-item label="Name">
-                    <el-input v-model="form.name" autocomplete="off"></el-input>
+                    <el-input v-model="form.name" ></el-input>
                 </el-form-item>
                 <el-form-item label="Code">
-                    <el-input v-model="form.code" autocomplete="off" width="65%"></el-input>
-                    <img :src="'data:image/png;base64,'+code" alt="" style="width:120px;">
+                    <el-input v-model="form.code" style="width:65%"></el-input>
+                    <img :src="'data:image/png;base64,'+code" alt="" style="width:30%;">
                 </el-form-item>
                 <el-form-item label="Password">
                     <el-input v-model="form.password" autocomplete="off" type="password"></el-input>
@@ -58,13 +56,13 @@
             <el-button type="primary" @click="Register">Submit</el-button>
         </el-dialog>
 
-        <el-dialog title="Login" :visible.sync="dialogLoginForm" >
+        <el-dialog title="Login" :visible.sync="dialogLoginForm" width="40%">
             <el-form :model="loginForm" label-width="100px" class="demo-ruleForm">
                 <el-form-item label="Name">
-                    <el-input v-model="loginForm.name" autocomplete="off"></el-input>
+                    <el-input v-model="loginForm.name"></el-input>
                 </el-form-item>
                 <el-form-item label="Password">
-                    <el-input v-model="loginForm.password" autocomplete="off" type="password"></el-input>
+                    <el-input v-model="loginForm.password" type="password"></el-input>
                 </el-form-item>
             </el-form>
             <el-button type="primary" @click="Login">Submit</el-button>
@@ -218,11 +216,12 @@
     .home-nav .el-menu.el-menu--horizontal{
         border-bottom:none;
     }
-    .home-nav .el-menu .el-menu-item:hover{
+    .home-nav .el-menu .el-menu-item:hover,.el-menu-item:focus{
         color:rgb(255, 208, 75) !important;
         background:#000 !important;
     }
     .sign-span{
+        padding-right:1em;
         font-size:12px;
         color:#fff;
         line-height:3em;

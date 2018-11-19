@@ -1,12 +1,12 @@
 <template>
   <div class="layout" id="app">
       <transition name="el-fade-in-linear">
-          <div class="header" v-if="isGame" v-show="show">
+          <div class="header" v-show="show">
               <Nav v-on:change="colorChange" ref="child"></Nav>
           </div>
       </transition>
 
-      <router-view style="min-height:800px;margin-top:4em;"></router-view>
+      <router-view style="min-height:800px;padding-top:4em;"></router-view>
       <!--<footer v-if="isGame" :style="{'background-color':color}">-->
         <!--宅神个人网站 &copy;2018 陕ICP备18005197号-1-->
       <!--</footer>-->
@@ -25,19 +25,18 @@ export default {
     },
     data(){
         return {
-            isGame:true,
             // ccstyle: "guoqing",
             // imgsrc: "",
             color:"rgb(84, 92, 100)",
-            show:false
+            show:true
         }
     },
     methods:{
         routeChange(to){
-            if(to.name=="game"){
-                this.isGame=false;
+            if(to.name=="game" || to.name=="home"){
+                this.show=false;
             }else{
-                this.isGame=true;
+                this.show=true;
             }
         },
         colorChange(msg){
