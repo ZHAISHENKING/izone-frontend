@@ -9,7 +9,7 @@ module.exports = {
     // 打包项目输出目录
     outputDir: "dist",
     // 静态资源存放目录
-    assetsDir: "static",
+    // assetsDir: "",
     lintOnSave: true,
     // devServer Options don't belong into `configureWebpack`
     devServer: {
