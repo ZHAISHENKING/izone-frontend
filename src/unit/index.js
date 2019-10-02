@@ -75,7 +75,8 @@ const unit = {
         return
       }
       data = JSON.stringify(data)
-      data = encodeURIComponent(data)
+      data = encodeURIComponent(data);
+      // btoa base64编码
       if (window.btoa) {
         data = btoa(data)
       }
