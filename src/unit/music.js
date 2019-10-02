@@ -11,8 +11,9 @@ export const hasWebAudioAPI = {
   data: !!AudioContext && location.protocol.indexOf('http') !== -1
 }
 
-export const music = {}
-;(() => {
+export const music = {};
+
+(() => {
   if (!hasWebAudioAPI.data) {
     return
   }
