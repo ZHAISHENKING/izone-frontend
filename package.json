@@ -10,7 +10,7 @@
     "docs:build": "vuepress build docs"
   },
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.18.1",
     "element-ui": "^2.4.8",
     "immutable": "^3.8.1",
     "iview": "^3.1.3",
