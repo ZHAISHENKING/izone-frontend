@@ -64,7 +64,7 @@
     "vue-template-compiler": "^2.3.3",
     "vuepress": "^0.14.8",
     "webpack": "^4.20.2",
-    "webpack-bundle-analyzer": "^2.2.1",
+    "webpack-bundle-analyzer": "^3.3.2",
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.18.0",
     "webpack-merge": "^4.1.0"
